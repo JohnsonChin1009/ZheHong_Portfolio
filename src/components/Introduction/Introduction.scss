@@ -1,0 +1,78 @@
+@import '../../variables.scss';
+
+.Profile-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #FFFFFF;
+
+
+    @media (max-width: 1000px){
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .Profile-description{
+        margin: 0 auto;
+        width: 80%;
+
+        & > * {
+            margin: 50px 0;
+            opacity: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            filter: brightness(.9);
+            text-align: center;
+            font-size: calc(3vmin);
+        }
+
+        p {
+            text-align: justify;
+            filter: brightness(.7);
+            word-spacing: 7px;
+            line-height: 24px;
+        }
+
+        .Profile-redirect{
+
+            margin: 2em 0;
+
+            svg {
+                fill: #FFFFFF;
+                transition: fill .2s ease-in-out;
+                
+                &:first-child{
+                    margin-right: 3vmin;
+                }
+
+                &:hover{
+                    fill: $red;
+                }
+            }
+        }
+
+        &.in-view{
+            & > * {
+                animation: bottomSlide .5s ease-in-out forwards;
+            }
+        }
+    }
+
+    .Profile-card{
+        img{
+            clip-path: circle();
+            width: 60%;
+            height: auto;
+            border: 2vmin solid #FFFFFF;
+            border-radius: 50%;
+            opacity: 0;
+
+            &.in-view{
+                animation: bottomSlide .5s ease-in-out forwards;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+
+.Fallback {
+    text-align: center;
+
+    .Fallback-container {
+        min-height: 100vh;
+        font-size: calc(10px + 2vmin);
+        color: white;
+
+        .Fallback-icon {
+            height: 40vmin;
+            pointer-events: none;
+        }
+    
+        @media (prefers-reduced-motion: no-preference) {
+            .Fallback-icon {
+              animation: Fallback-icon-spin infinite 20s linear;
+            }
+        }
+      }
+}
+  
+@keyframes Fallback-icon-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+  

@@ -1,0 +1,86 @@
+@import "../../variables.scss";
+
+.App-header{
+    font-size: calc(2vmin + 10px);
+
+    .App-header-nav {
+        list-style-type: none;
+        width: 100%;
+        justify-content: space-between;
+
+        .header-items {
+            float: left;
+            opacity: 0;
+
+            a {
+                font-weight: 800;
+                padding: 15px;
+                transition: .2s ease-in;
+                color: #ececec;
+
+                &:hover{
+                    color: $red;
+                }
+
+                &.active{
+                    font-size: 4vmin;
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    &.in-view{
+        .header-items{
+            animation: leftSlide .5s ease-in-out forwards;
+        }
+    }
+}
+
+.sliding-header{
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #323949;
+    transition: transform .3s ease-out;
+    transform: translateY(-100%);
+    z-index: 1000;
+  
+    &.in-view {
+        transform: translateY(0);
+    }
+
+    menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 15px;
+
+        li {
+            float: left;
+            
+            a:not(.header-right a){
+                font-size: calc(2vmin + 10px);
+                padding: 15px;
+                transition: .2s ease-in-out;
+
+                &:hover, &.active {
+                    background-color: $shade1;
+                    color: #FFFFFF;
+                }
+            }
+
+            svg {
+                fill: #FFFFFF;
+                margin: 0 calc(1vmin + 10px);
+                transition: fill .2s ease-in-out;
+                
+                &:hover{
+                    fill: $red;
+                }
+            }
+        }
+    }
+
+}
